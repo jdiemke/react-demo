@@ -1,16 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import Counter from  './Counter';
+import { shallow } from 'enzyme';
+import Counter from './Counter';
 
 describe('Counter', () => {
 
-    it('should generate correct html', () => {
-        const div = document.createElement('div');
-        ReactDOM.render(<Counter />, div);
-    
-        expect(div.innerHTML).toBe('<h1>1337</h1>');
-    
-        ReactDOM.unmountComponentAtNode(div);
+    it('renders without crashing', () => {
+        shallow(<Counter />);
     });
-    
+
+    it('should generate correct html', () => {
+        const wrapper = shallow(<Counter />);
+        const headlineText = wrapper.find('h1').text();
+
+        expect(headlineText).toBe('1337');
+    });
+
 });
