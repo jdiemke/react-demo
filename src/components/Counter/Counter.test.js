@@ -13,6 +13,7 @@ describe('Counter', () => {
         const headlineText = wrapper.find('h1').text();
 
         expect(headlineText).toBe('1337');
+        expect(wrapper.contains(<h2>test</h2>)).toEqual(true);
     });
 
 });

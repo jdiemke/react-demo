@@ -14,6 +14,7 @@ export default class Counter extends Component {
         return (
             <React.Fragment>
                 <h1>{this.getCount()}</h1>
+                <h2>test</h2>
             </React.Fragment>
         );
     }
