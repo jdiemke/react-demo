@@ -1,7 +1,8 @@
 import React from 'react';
 import './Person.css';
 import 'bootstrap/dist/css/bootstrap.css';
-const Person = (props) => (
+
+const Person = (props: any) => (
     <div className="card" style={{ width: '12rem' }}>
         <img className="card-img-top" src={props.picture} alt="Card image cap" />
         <div className="card-body">

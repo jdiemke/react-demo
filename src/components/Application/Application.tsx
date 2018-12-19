@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
-import Person from './../Person/Person';
+import Person from '../Person/Person';
 import './Application.css';
-import Counter from '../Counter/Counter';
 
-class Application extends Component {
+interface Props {
 
-  state = {
-    persons: [],
-    show: true
-  };
+}
 
-  constructor() {
-    super();
+interface State {
+  persons: Array<{
+    name: any;
+    picture: any;
+  }>;
+  show: boolean;
+}
+
+class Application extends Component<Props, State> {
+
+
+
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      persons: [],
+      show: true
+    };
     this.switchPersonHandler();
   }
 
   switchPersonHandler() {
-   
+
     console.log('click!');
 
     fetch('https://randomuser.me/api/?results=5')
@@ -35,10 +48,10 @@ class Application extends Component {
       <div className="Application">
         <h1>Meet Developers Online</h1>
         <div className="card-deck">
-          
+
           {this.state.show && this.state.persons.map(p => (
             <Person name={p.name.title + " " + p.name.first + " " + p.name.last}
-              key={ p.name.first + " " + p.name.last}
+              key={p.name.first + " " + p.name.last}
               picture={p.picture.large}></Person>
           ))}
         </div>
